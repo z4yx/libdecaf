@@ -15,6 +15,8 @@ static int used = 0;
 static char readbuf[READBUFSIZE];
 static int readbuf_cnt;
 
+void __decaf_main(void);
+
 static int _refill_readbuf()
 {
   int ret = read(STDIN_FILENO, readbuf, READBUFSIZE);
@@ -141,4 +143,9 @@ int __decaf_stringEqual(char *s1, char *s2){
   // printf("%s: len2=%d\n", __func__, strlen(s2));
   // printf("%s: cmp=%d\n", __func__, ret);
   return ret == 0;
+}
+
+int main(int argc, char *argv[]){
+  __decaf_main();
+  return 0;
 }
