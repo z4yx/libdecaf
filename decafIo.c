@@ -57,6 +57,14 @@ static int __getint(){
     putc(c);
     c = __getchar();
   }
+  while(c == ' '){
+    putc(c);
+    c = __getchar();
+  }
+  if(c == '\r' || c == '\n'){
+    putc('\n');
+    c = __getchar();
+  }
 nan:
   if(c >= 0)
     __ungetc(c);
