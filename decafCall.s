@@ -74,6 +74,7 @@ _ReadInteger:
 _StringEqual:
 
 	lw	$a0, 4($sp)
+	lw	$a1, 8($sp)
 	la	$t0, __decaf_stringEqual
 	j	__c_call	
 
