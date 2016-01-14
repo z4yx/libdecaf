@@ -43,15 +43,18 @@ static int __ungetc(int c)
 
 static int __getint(){
   int c, ret = 0, sym = 1;
-  while(c = __getchar(), c > 0 && c <= ' ');
+  while(c = __getchar(), c > 0 && c <= ' ')
+    putc(c);
   if(c < 0 || c != '-' && c < '0' && c > '9')
     goto nan;
   if(c == '-'){
     sym = -1;
+    putc(c);
     c = __getchar();
   }
   while(c >= '0' && c <= '9'){
     ret = ret*10+(c-'0');
+    putc(c);
     c = __getchar();
   }
 nan:
