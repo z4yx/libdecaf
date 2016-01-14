@@ -6,6 +6,7 @@
 	.global _Halt
 	.global _ReadLine
 	.global _ReadInteger
+	.global _StringEqual
 
 
 	.type	__c_call, @function
@@ -67,5 +68,12 @@ _ReadInteger:
 
 	lw	$a0, 4($sp)
 	la	$t0, __decaf_readInt
+	j	__c_call	
+	
+	.type	_StringEqual, @function
+_StringEqual:
+
+	lw	$a0, 4($sp)
+	la	$t0, __decaf_stringEqual
 	j	__c_call	
 

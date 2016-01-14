@@ -126,3 +126,11 @@ char *__decaf_readLine(void) {
     strncpy(result, buffer, length);
     return result;
 }
+
+int __decaf_stringEqual(char *s1, char *s2){
+  int ret = strcmp(s1, s2);
+  // printf("%s: len1=%d\n", __func__, strlen(s1));
+  // printf("%s: len2=%d\n", __func__, strlen(s2));
+  // printf("%s: cmp=%d\n", __func__, ret);
+  return ret == 0;
+}
