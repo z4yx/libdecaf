@@ -5,6 +5,7 @@
 	.global _PrintBool
 	.global _Halt
 	.global _ReadLine
+	.global _ReadInteger
 
 
 	.type	__c_call, @function
@@ -61,3 +62,10 @@ _ReadLine:
 	la	$t0, __decaf_readLine
 	j	__c_call	
 	
+	.type	_ReadInteger, @function
+_ReadInteger:
+
+	lw	$a0, 4($sp)
+	la	$t0, __decaf_readInt
+	j	__c_call	
+
