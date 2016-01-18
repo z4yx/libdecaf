@@ -65,7 +65,7 @@ static int __getint(){
   }
   if(c == '\r' || c == '\n'){
     putc('\n');
-    c = __getchar();
+    c = -1;
   }
 nan:
   if(c >= 0)
