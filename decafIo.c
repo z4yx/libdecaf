@@ -7,7 +7,7 @@
 #define putc(c) printf("%c", c)
 
 #define MEMSIZE 1024*1024
-#define LINEBUFSIZE 4096
+#define LINEBUFSIZE 64
 #define READBUFSIZE 1
 
 static int mem[MEMSIZE/4];
