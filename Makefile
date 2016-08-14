@@ -1,23 +1,22 @@
-TARGET             := mips-sde-elf-
+TARGET             := mipsel-unknown-linux-gnu-
 
 AS                 := $(TARGET)as -EL -g -mips32
 CC                 := $(TARGET)gcc
-LD                 := $(TARGET)ld
+LD                 := $(TARGET)gcc
 AR                 := $(TARGET)ar
 DECAF              := java -jar decaf.jar 
 RM                 := rm -f
 
 LIBDECAFDIR        := $(shell pwd)
-UCOREPREFIX        := /src/ucore-thumips
 
 
-INCLUDE_DIR        += -I$(UCOREPREFIX)/user/libs -I$(UCOREPREFIX)/kern/include
-CFLAGS             += -fno-builtin -nostdlib  -nostdinc -mno-float -fno-delayed-branch -g  -EL -G0 -O2 -Wa,-O2 $(INCLUDE_DIR)
+INCLUDE_DIR        += 
+CFLAGS             += -fno-builtin -fno-delayed-branch -g  -EL -G0 -O2 -Wa,-O2 $(INCLUDE_DIR)
 
 
-LIBS               += -ldecaf -luser 
-LIB_DIR            += -L$(UCOREPREFIX)/obj/user -L$(LIBDECAFDIR)
-LDFLAGS            += -nostdlib -S -T $(UCOREPREFIX)/user/libs/user.ld $(LIB_DIR)
+LIBS               += -ldecaf 
+LIB_DIR            += -L$(LIBDECAFDIR)
+LDFLAGS            += $(LIB_DIR) -static
 
 
 
